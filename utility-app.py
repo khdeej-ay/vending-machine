@@ -39,3 +39,23 @@ def menu():
     ]
     # return the menu lists so that they can be used in the program
     return snacks, beverages, desserts
+
+# function that displays the menu selected as a formatted table
+def display_menu(menu_items, menu_type):
+    # print the formatted header of the menu selected
+    print(f"""
+                            ┌──────────────────────────────────────────────────┐
+                            │ {menu_type.upper():^48} │
+                            ├────┬──────────────────────────┬─────────┬────────┤ 
+                            │ #  │ Item                     │ Price   │ Stock  │
+                            ├────┼──────────────────────────┼─────────┼────────┤   """)
+    # loop through the items of the menu selected
+    for item in menu_items:
+        # check if any item has no stock
+        if item['stock'] == 0: 
+            # remove item whose stock is 0
+            menu_items.remove(item)
+        # print the value of each menu item formatted into the table
+        print(f"                            │ {item['code']} │ {item['item']:<24} │ DH {item['price']:.2f} │ {item['stock']:^6} │")
+    # print the footer that ends the table
+    print("                            └────┴──────────────────────────┴─────────┴────────┘")
