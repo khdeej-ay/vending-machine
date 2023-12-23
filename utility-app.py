@@ -38,6 +38,31 @@ desserts = [
     {"item": "Salted Caramel Ice cream", "code": 35, "price": 2.50, "stock": 2}
 ]
 
+def menu_choice():
+    global menu_selected
+    while True: 
+        choice = input("\nTYPE 1 FOR SNACKS, 2 FOR BEVERAGES, 3 FOR DESSERTS, OR 0 TO QUIT: ").strip()
+        if choice == "0":            
+            break        
+        elif choice == "1":            
+            display_menu(snacks, "Snacks")
+            print("\nCHOOSE AN ITEM")                    
+            menu_selected = snacks          
+            break  
+        elif choice == "2": 
+            display_menu(beverages, "Beverages")
+            print("\nCHOOSE AN ITEM")        
+            menu_selected = beverages
+            break
+        elif choice == "3": 
+            display_menu(desserts, "Desserts")
+            print("\nCHOOSE AN ITEM")        
+            menu_selected = desserts
+            break
+        else: 
+            print("\n                                              Incorrect choice. Please try again. ")
+            continue
+
 # function that displays the menu selected as a formatted table
 def display_menu(menu_items, menu_type):
     # print the formatted header of the menu selected
