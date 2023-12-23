@@ -34,11 +34,11 @@ def display_menu(menu_items, menu_type):
                             ├────┬──────────────────────────┬─────────┬────────┤ 
                             │ #  │ Item                     │ Price   │ Stock  │
                             ├────┼──────────────────────────┼─────────┼────────┤   """)
-    # loop through the items of the menu selected
-    for item in menu_items:
-        # check if any item has no stock
-        if item['stock'] == 0: 
-            # remove item whose stock is 0
+    # loop through copy of menu_items to avoid modifying it directly during iteration
+    for item in menu_items.copy():
+        # check if any item has stock 0 or less
+        if item['stock'] <= 0:    
+            # remove item with stock 0 or less
             menu_items.remove(item)
         # print the value of each menu item formatted into the table
         print(f"                            │ {item['code']} │ {item['item']:<24} │ DH {item['price']:.2f} │ {item['stock']:^6} │")
