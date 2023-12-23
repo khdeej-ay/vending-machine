@@ -45,6 +45,19 @@ def display_menu(menu_items, menu_type):
     # print the footer that ends the table
     print("                            └────┴──────────────────────────┴─────────┴────────┘")
 
+def cash():
+    while True:
+        money_inserted = float(input("\nInsert an amount of money: DH ").strip())
+        return money_inserted
+
+def card():
+        print("\nInsert your card into the card reader. ")
+        print("\n\033[5;30mCommunicating with your bank ...\033[0m")
+        print("\nYour card has been approved.") 
+        insert_card = True
+        print("\nPlease leave the card in the reader and proceed with your purchase(s).")
+        return insert_card
+
 ### PROGRAM START!!!
 
 # ask user to input their name
@@ -97,10 +110,13 @@ print("╚═══════════════════════�
 while True: 
     payment = input("\nTYPE 1 TO INSERT CASH OR 2 TO USE A CARD: ").strip()    
     if payment == "1":        
-        type = "CASH"               
+        type = "CASH"
+        money = cash()
+        card_used = False
         break        
     elif payment == "2":         
         type = "CARD"
+        card_used = card()
         break    
     else:        
         print("\nInvalid choice. Please enter 1 for cash or 2 for card.")
