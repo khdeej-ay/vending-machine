@@ -45,7 +45,6 @@ def display_menu(menu_items, menu_type):
     # print the footer that ends the table
     print("                            └────┴──────────────────────────┴─────────┴────────┘")
 
-
 ### PROGRAM START!!!
 
 # ask user to input their name
@@ -88,3 +87,20 @@ desserts = [
     {"item": "Chocolate Mousse", "code": 34, "price": 3, "stock": 2},
     {"item": "Salted Caramel Ice cream", "code": 35, "price": 2.50, "stock": 2}
 ]
+
+print("\n╔═══════════════════════════════════════╗")
+print("║        CHOOSE A PAYMENT METHOD        ║")
+print("╠═══════════════════════════════════════╣")
+print("║           CASH[1] | CARD[2]           ║")
+print("╚═══════════════════════════════════════╝")
+
+while True: 
+    payment = input("\nTYPE 1 TO INSERT CASH OR 2 TO USE A CARD: ").strip()    
+    if payment == "1":        
+        type = "CASH"               
+        break        
+    elif payment == "2":         
+        type = "CARD"
+        break    
+    else:        
+        print("\nInvalid choice. Please enter 1 for cash or 2 for card.")
