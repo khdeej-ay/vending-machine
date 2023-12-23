@@ -13,34 +13,30 @@ print("""
 # welcome message [[print("Welcome to name!")]]
 print("                                     WELCOME!")
 
-# function that contains menu types (snacks, beverages and desserts)
-def menu():
-    # list containing 5 snacks stored as dictionaries
-    snacks = [
-        {"item": "Takis Fuego Crisps", "code": 71, "price": 4, "stock": 3},
-        {"item": "Chocolate Pocky", "code": 72, "price": 2, "stock": 3},
-        {"item": "Mozzarella String Cheese", "code": 74, "price": 2.50, "stock": 2},
-        {"item": "Caramel Popcorn", "code": 75, "price": 3, "stock": 2},
-        {"item": "Chocolate Chunkos", "code": 73, "price": 3.50, "stock": 4}
-    ]
-    # list containing 5 beverages stored as dictionaries
-    beverages = [
-        {"item": "Water bottle", "code": 21, "price": 1.50, "stock": 5},
-        {"item": "Pineapple Juice", "code": 22, "price": 2.50, "stock": 2},
-        {"item": "Brown Sugar Milk Tea", "code": 23, "price": 3.50, "stock": 3},
-        {"item": "Caramel Macchiato", "code": 24, "price": 4.50, "stock": 4},
-        {"item": "Strawberry Milkshake", "code": 25, "price": 3, "stock": 2}
-    ]
-    # list containing 5 desserts stored as dictionaries
-    desserts = [
-        {"item": "Hazelnut Chocolate", "code": 31, "price": 3.50, "stock": 4},
-        {"item": "Plain Glazed Donut", "code": 32, "price": 4, "stock": 3},
-        {"item": "Caramel Fudge Brownie", "code": 33, "price": 4.50, "stock": 3},
-        {"item": "Chocolate Mousse", "code": 34, "price": 3, "stock": 2},
-        {"item": "Salted Caramel Ice cream", "code": 35, "price": 2.50, "stock": 2}
-    ]
-    # return the menu lists so that they can be used in the program
-    return snacks, beverages, desserts
+# list containing 5 snacks stored as dictionaries
+snacks = [
+    {"item": "Takis Fuego Crisps", "code": 71, "price": 4, "stock": 3},
+    {"item": "Chocolate Pocky", "code": 72, "price": 2, "stock": 3},
+    {"item": "Mozzarella String Cheese", "code": 74, "price": 2.50, "stock": 2},
+    {"item": "Caramel Popcorn", "code": 75, "price": 3, "stock": 2},
+    {"item": "Chocolate Chunkos", "code": 73, "price": 3.50, "stock": 4}
+]
+# list containing 5 beverages stored as dictionaries
+beverages = [
+    {"item": "Water bottle", "code": 21, "price": 1.50, "stock": 5},
+    {"item": "Pineapple Juice", "code": 22, "price": 2.50, "stock": 2},
+    {"item": "Brown Sugar Milk Tea", "code": 23, "price": 3.50, "stock": 3},
+    {"item": "Caramel Macchiato", "code": 24, "price": 4.50, "stock": 4},
+    {"item": "Strawberry Milkshake", "code": 25, "price": 3, "stock": 2}
+]
+# list containing 5 desserts stored as dictionaries
+desserts = [
+    {"item": "Hazelnut Chocolate", "code": 31, "price": 3.50, "stock": 4},
+    {"item": "Plain Glazed Donut", "code": 32, "price": 4, "stock": 3},
+    {"item": "Caramel Fudge Brownie", "code": 33, "price": 4.50, "stock": 3},
+    {"item": "Chocolate Mousse", "code": 34, "price": 3, "stock": 2},
+    {"item": "Salted Caramel Ice cream", "code": 35, "price": 2.50, "stock": 2}
+]
 
 # function that displays the menu selected as a formatted table
 def display_menu(menu_items, menu_type):
