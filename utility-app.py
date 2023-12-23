@@ -1,5 +1,7 @@
 # Utility App | VENDING MACHINE
 
+# ask user to input their name
+name = input("\nEnter your name: ").title()
 # display the title as ASCII Art
 print("""
                                 
@@ -9,9 +11,10 @@ print("""
                 │   ╚╝  ╚═╝ ╝╚╝ ═╩╝ ╩ ╝╚╝ ╚═╝    ╩ ╩ ╩ ╩ ╚═╝ ╩ ╩ ╩ ╝╚╝ ╚═╝  │  
                 └───────────────────────────────────────────────────────────┘
 """)
-
-# welcome message [[print("Welcome to name!")]]
-print("                                     WELCOME!")
+# greet the user
+print(f"Greetings {name}!")
+# welcome message
+print("WELCOME to Treat Vendor!")
 
 # list containing 5 snacks stored as dictionaries
 snacks = [
