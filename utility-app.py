@@ -120,3 +120,12 @@ while True:
         break    
     else:        
         print("\nInvalid choice. Please enter 1 for cash or 2 for card.")
+
+# print a formatted list of menu types to choose from
+print("\n╔══════════════════════════════════════════╗")
+print("║          CHOOSE A MENU CATEGORY          ║")
+print("╠══════════════════════════════════════════╣")
+print("║  SNACKS[1] | BEVERAGES[2] | DESSERTS[3]  ║")
+print("╚══════════════════════════════════════════╝")
+
+menu_choice()
