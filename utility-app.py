@@ -8,6 +8,15 @@ def pause():
     # 1-second pause
     time.sleep(1)
 
+# function to print a styled box asking for user's preffered payment method
+def payment_method():
+    print("""\n\t╔═══════════════════════════════════════╗
+\t║        CHOOSE A PAYMENT METHOD        ║
+\t╠═══════════════════════════════════════╣
+\t║           CASH[1] | CARD[2]           ║
+\t╚═══════════════════════════════════════╝\033[0m""")
+    pause()
+
 def choose_item():
     print("\nCHOOSE AN ITEM")        
 
@@ -55,19 +64,6 @@ def display_menu(menu_items, menu_type):
         print(f"                            │ {item['code']} │ {item['item']:<24} │ DH {item['price']:.2f} │ {item['stock']:^6} │")
     # print the footer that ends the table
     print("                            └────┴──────────────────────────┴─────────┴────────┘")
-
-def cash():
-    while True:
-        money_inserted = float(input("\nInsert an amount of money: DH ").strip())
-        return money_inserted
-
-def card():
-        print("\nInsert your card into the card reader. ")
-        print("\n\033[5;30mCommunicating with your bank ...\033[0m")
-        print("\nYour card has been approved.") 
-        insert_card = True
-        print("\nPlease leave the card in the reader and proceed with your purchase(s).")
-        return insert_card
 
 def item_choice(menu_selected):
     global item_selected, item_price, item_code    
@@ -149,25 +145,67 @@ desserts = [
     {"item": "Salted Caramel Ice cream", "code": 35, "price": 2.50, "stock": 2}
 ]
 
-print("\n╔═══════════════════════════════════════╗")
-print("║        CHOOSE A PAYMENT METHOD        ║")
-print("╠═══════════════════════════════════════╣")
-print("║           CASH[1] | CARD[2]           ║")
-print("╚═══════════════════════════════════════╝")
+payment_method()
 
+# while loop to ensure valid payment method is entered
 while True: 
-    payment = input("\nTYPE 1 TO INSERT CASH OR 2 TO USE A CARD: ").strip()    
-    if payment == "1":        
-        type = "CASH"
-        money = cash()
-        card_used = False
-        break        
+    # ask user if they want to use cash or card
+    payment = input("\nCASH OR CARD?: ").strip()   
+    # if user inputs 1, payment method is cash 
+    if payment == "1":  
+        # set variable card_used to False
+        card_used = False  
+        # while loop to ensure valid amount is inserted
+        while True:
+            # ask user to insert money (strip removes extra spaces)
+            money_inserted = input("\nInsert an amount of money: DH ").strip()
+            # tests this block of code
+            try:
+                # money inserted is converted to float and set to money variable
+                money = float(money_inserted)
+                # if money is more than 0
+                if money > 0:
+                    # call the pause() function
+                    pause()
+                    # set cash equal to money 
+                    cash = money
+                    # print the balance to be ued for purchase(s)
+                    print(f"\nBalance = DH {money:.2f}")
+                    # call the pause() function
+                    pause()
+                    # break out of while loop
+                    break
+                # if money inserted is less than or equal to 0
+                else:
+                    # print enter amount more than 0
+                    print("\nPlease enter an amount greater than 0.")
+            # handles error in inserting money
+            except ValueError:
+                # print enter a valid amount of money
+                print("\nInvalid input. Please enter a valid amount.")    
+        # break out of outer while loop
+        break  
+    # if user inputs 2, payment method is card
     elif payment == "2":         
-        type = "CARD"
-        card_used = card()
-        break    
+        # set cash to 0
+        cash = 0
+        # these statements are used to make the program seem more realistic
+        print("\nInsert your card into the card reader. ")
+        pause()
+        print("\n\033[5;30mCommunicating with your bank ...\033[0m")
+        pause()
+        print("\nYour card has been approved.") 
+        # set card_used to True
+        card_used = True
+        pause()
+        # more realistic (even though there is no physical card)
+        print("\nPlease leave the card in the reader and proceed with your purchase(s).")
+        pause()
+        # break out of outer while loop
+        break  
+    # runs when invalid payment method is entered  
     else:        
-        print("\nInvalid choice. Please enter 1 for cash or 2 for card.")
+        print("\nInvalid choice. Please enter 1 for cash or 2 for card.")     
 
 # print a formatted list of menu types to choose from
 print("\n╔══════════════════════════════════════════╗")
@@ -177,4 +215,3 @@ print("║  SNACKS[1] | BEVERAGES[2] | DESSERTS[3]  ║")
 print("╚══════════════════════════════════════════╝")
 
 menu_choice()
-
