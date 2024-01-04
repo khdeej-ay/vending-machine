@@ -76,6 +76,17 @@ def item_choice(menu_selected):
             print("\nInvalid item number. Please try again.")
         break
 
+# function to update the items stock when one is dispensed
+def update_stock(menu_items, item_num):
+    # for loop iterates through items in the selected menu 
+    for item in menu_items:
+        # select the item whose code the user has entered
+        if item_num == str(item['code']):
+            # deduct the stock for that specific item by 1 
+            item['stock'] -= 1           
+            # break out of the loop (once selected item stock is deducted)
+            break
+
 ### PROGRAM START!!!
 
 # ask user to input their name
@@ -147,3 +158,4 @@ print("║  SNACKS[1] | BEVERAGES[2] | DESSERTS[3]  ║")
 print("╚══════════════════════════════════════════╝")
 
 menu_choice()
+
