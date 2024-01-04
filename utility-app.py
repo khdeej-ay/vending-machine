@@ -95,6 +95,11 @@ def update_stock(menu_items, item_num):
             # break out of the loop (once selected item stock is deducted)
             break
 
+# function to print item dispensed message and update item stock
+def item_dispensed():
+    print(f'\nYour {item_selected} has been dispensed.')    
+    update_stock(menu_selected, item_code)
+
 ### PROGRAM START!!!
 
 # ask user to input their name
