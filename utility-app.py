@@ -8,6 +8,9 @@ def pause():
     # 1-second pause
     time.sleep(1)
 
+def choose_item():
+    print("\nCHOOSE AN ITEM")        
+
 def menu_choice():
     global menu_selected
     while True: 
@@ -16,17 +19,17 @@ def menu_choice():
             break        
         elif choice == "1":            
             display_menu(snacks, "Snacks")
-            print("\nCHOOSE AN ITEM")                    
+            choose_item()
             menu_selected = snacks          
             break  
         elif choice == "2": 
             display_menu(beverages, "Beverages")
-            print("\nCHOOSE AN ITEM")        
+            choose_item()
             menu_selected = beverages
             break
         elif choice == "3": 
             display_menu(desserts, "Desserts")
-            print("\nCHOOSE AN ITEM")        
+            choose_item()
             menu_selected = desserts
             break
         else: 
@@ -99,6 +102,9 @@ def update_stock(menu_items, item_num):
 def item_dispensed():
     print(f'\nYour {item_selected} has been dispensed.')    
     update_stock(menu_selected, item_code)
+
+def thank_you():
+    print("\nThank you for purchasing! Please come again!")
 
 ### PROGRAM START!!!
 
