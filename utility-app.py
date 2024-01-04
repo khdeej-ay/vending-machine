@@ -22,7 +22,7 @@ def menu_choice():
             menu_selected = desserts
             break
         else: 
-            print("\n                                              Incorrect choice. Please try again. ")
+            print("\nIncorrect choice. Please try again. ")
             continue
 
 # function that displays the menu selected as a formatted table
@@ -58,10 +58,28 @@ def card():
         print("\nPlease leave the card in the reader and proceed with your purchase(s).")
         return insert_card
 
+def item_choice(menu_selected):
+    global item_selected, item_price, item_code    
+    while True: 
+        number = input("\nEnter the item number of the item you want: ").strip()
+        for item in menu_selected:
+            if number == str(item['code']):
+                item_code = number
+                item_selected = item['item']
+                item_price = item['price']
+                if item['stock'] > 0:
+                    break
+                else:  
+                    print(f"\nSorry, {item['item']} is out of stock.")        ##continue (w/o item)??  
+                    break   
+        else: 
+            print("\nInvalid item number. Please try again.")
+        break
+
 ### PROGRAM START!!!
 
 # ask user to input their name
-name = input("\nEnter your name: ").title()
+name = input("\nEnter your name: ").strip().title()
 # display the title as ASCII Art
 print("""
                                 
@@ -74,7 +92,7 @@ print("""
 # greet the user
 print(f"Greetings {name}!")
 # welcome message
-print("WELCOME to Treat Vendor!")
+print("WELCOME!")
 
 # list containing 5 snacks stored as dictionaries
 snacks = [
