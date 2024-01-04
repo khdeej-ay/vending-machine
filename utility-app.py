@@ -1,4 +1,12 @@
-# Utility App | VENDING MACHINE
+### Utility App | VENDING MACHINE
+
+# import the time module (to access the time.sleep function)
+import time
+
+# function to use the time.sleep function
+def pause():
+    # 1-second pause
+    time.sleep(1)
 
 def menu_choice():
     global menu_selected
